@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --main-color: #FFD58A;
+    /* Main color */
+    --secondary-color: #b6d7a8;
+    /* Pastel secondary color */
+    --accent-color: #9ab8c2;
+    /* Pastel accent color */
+    --text-color: #333333;
+    /* Light charcoal text color */
+}
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--text-color);
+}
+
+.popup-container.hiden {
+    display: none;
+}
+
+.popup-container.open {
+    width: 100%;
+    height: 98vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 9999; */
+}
+
+.close-popup {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 40px;
+    width: 40px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 26px;
+    /* z-index: 99999; */
+}
+
+.close-popup:hover {
+    background-color: var(--accent-color);
+}
+
+
+.popup-content {
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    
+    width: 1060px;
+}
+
+/* images */
+.product-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-img {
+    width: 600px;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+.big-img {
+    display: none;
+}
+
+.main-img .select {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.smal-img {
+    margin-top: 10px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.smal-img img {
+    width: 190px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* details */
+.product-details {
+    /* width: 520px; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.product-details h3{
+    margin: 15px 0;
+}
+.popup-content .product-name {
+    /* width: 100%; */
+    margin-bottom: 10px;
+}
+
+.price-style-div {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 45px;
+}
+
+.price-style-div .product-style {
+    font-size: 16px;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.price-style-div .product-abv {
+    font-size: 16px;
+    background-color: var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.price-style-div .product-price {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.price-style-div .product-price::before {
+    content: "$";
+}
+
+.sixPack::after {
+    content: "$77.94";
+    font-size: 16px;
+    margin-left: 5px;
+    color: red;
+    font-weight: 400;
+    text-decoration: line-through;
+
+}
+
+.product-details .product-description {
+    margin-bottom: 15px;
+    height: 112px;
+    overflow: overlay;
+}
+
+.product-details .product-description::-webkit-scrollbar {
+    width: 10px;
+}
+
+.product-details .product-description::-webkit-scrollbar-track {
+    margin: 12px 0 12px 0;
+    box-shadow: 0 0 5px grey;
+    border-radius: 5px;
+}
+
+.product-details .product-description::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+.product-details .product-description::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary-color);
+}
+
+.select-container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.product-details label {
+    /* display: block; */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* switch */
+.switch-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    /* margin-bottom: 15px; */
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    height: 40px;
+    width: 180px;
+    border-radius: 17px;
+    padding: 2px;
+}
+
+.switch-field input {
+    display: none;
+}
+
+.switch-field label {
+    position: relative;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 10px;
+    width: 90px;
+    margin: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked+label {
+    background-color: var(--secondary-color);
+    box-shadow: none;
+    border-radius: 15px;
+}
+
+#radio-two:checked+label::before {
+    content: "-10%";
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-size: 12px;
+    color: red;
+    background-color: var(--main-color);
+    padding: 2px;
+    border-radius: 5px;
+}
+
+/* Quantity Counter */
+.product-details .counter {
+    width: 110px;
+    height: 40px;
+    margin: 0 auto;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-color);
+    border-radius: 17px;
+}
+
+.product-details .counter input {
+    width: 45px;
+    border: 0;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    background: transparent;
+    appearance: none;
+    outline: 0;
+}
+
+.product-details .counter span {
+    height: 35px;
+    width: 35px;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 7px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 15px;
+}
+
+.product-details .counter span:hover {
+    background: var(--accent-color);
+}
+
+/* Add to Cart */
+#add-to-cart-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 30px;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#add-to-cart-btn:hover {
+    background-color: var(--accent-color);
+}

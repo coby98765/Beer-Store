@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --main-color: #FFD58A;
+    /* Main color */
+    --secondary-color: #b6d7a8;
+    /* Pastel secondary color */
+    --accent-color: #9ab8c2;
+    /* Pastel accent color */
+    --text-color: #333333;
+    /* Light charcoal text color */
+}
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--text-color);
+}
+
+/* main */
+main {
+    width: 80%;
+    margin: 0 10% 0 10%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media (max-width: 1013px) {
+    main {
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+/* SideNav */
+.sideNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    padding-top: 30px;
+    padding-right: 10px;
+}
+
+
+.topFIlter {
+    padding: 18px;
+    margin: 2px;
+    width: 100%;
+}
+
+.topFIlter p {
+    float: left;
+    font-size: 15px;
+}
+
+.topFIlter button {
+    margin-top: 12px;
+    float: right;
+}
+
+.accordion,
+.topFIlter button {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1.5px solid var(--text-color);
+}
+
+.accordion:hover,
+.topFIlter button:hover {
+    color: var(--accent-color);
+    border-bottom: 1.5px solid var(--accent-color);
+}
+
+/* accordion */
+.accordion {
+    cursor: pointer;
+    padding: 18px;
+    margin: 2px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    box-shadow: var(--shadow);
+}
+
+
+.accordion:after {
+    content: '\002B';
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 600;
+    float: right;
+    margin-left: 5px;
+}
+
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+/* end of accordion */
+
+.sideNav p {
+    margin: 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.sideNav .FilterOption {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    width: 200px;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 16px;
+
+}
+
+.FilterOption:hover {
+    background-color: var(--accent-color);
+}
+
+.sideNav .selected {
+    background-color: var(--secondary-color) !important;
+}
+
+.FilterOption .color {
+    margin: 0 10px 0 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.storeSearch {
+    margin: 5px;
+    width: 200px;
+    height: 38px;
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 16px;
+}
+
+/* Search */
+.storeSearch input {
+    height: 28px;
+    width: 80%;
+    background-color: transparent;
+    border: 0;
+    accent-color: var(--text-color);
+}
+
+.storeSearch input:focus {
+    outline: none;
+}
+
+.storeSearch input::placeholder {
+    color: var(--text-color);
+    opacity: 1;
+}
+
+.storeSearch button {
+    float: right;
+    height: 28px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.storeSearch button:hover {
+    color: var(--text-color);
+    background-color: white;
+    outline: 1px solid black;
+}
+
+/* mobile */
+.close-button {
+    display: none;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+@media (max-width: 1013px) {
+    .sideNav {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 300px;
+        padding: 50px 5% 0 5%;
+        background-color: white;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .close-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        z-index: 1001;
+    }
+
+    .close-button span {
+        font-size: 40px;
+        /* font-weight: bold; */
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .topNav p {
+        display: none;
+    }
+}
+
+/* products */
+.store {
+    margin-top: 20px;
+    width: 80%;
+}
+
+
+/* store */
+.topNav {
+    height: 50px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.topNav p {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.topNav button {
+    margin-right: 10px;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 20px;
+}
+
+.topNav button:hover {
+    background-color: var(--accent-color);
+}
+
+.topNav .selected {
+    background-color: var(--secondary-color) !important;
+}
+
+/* filterTags */
+.tagsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 5px 5px 15px 0;
+}
+
+.filterTag {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 5px 5px 5px 10px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.filterTag:hover {
+    border: var(--text-color) 1px solid;
+}
+
+.filterTag p {
+    font-size: 15px;
+    margin: 0;
+    margin-right: 7px;
+    padding: 0;
+
+}
+
+.filterTag button {
+    font-size: 14px;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    padding: 0;
+}
+
+.filterTag button:hover {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    border: var(--text-color) 1px solid;
+}
+
+/* products */
+.product-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.product-tile {
+    background-color: white;
+    /* padding-bottom: 10px; */
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    width: 100%;
+    height: 190px;
+    position: relative;
+}
+
+.image-container {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 150px;
+    /* margin-bottom: 20px; */
+}
+
+.image-container img {
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img:hover {
+    cursor: pointer;
+}
+
+.product-name {
+    margin-top: 0;
+    margin: 10px;
+    margin-bottom: 5px;
+    float: left;
+}
+
+.product-price {
+    float: right;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.see-more-button {
+    background-color: var(--main-color);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    bottom: 45px;
+}
+
+.see-more-button:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+
+/* loading placeholder */
+.Oops {
+    justify-content: flex-start !important;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loading h1 {
+    color: var(--secondary-color);
+    margin: 15px 0 5px 0;
+    font-size: 50px;
+}
+
+.loading h3 {
+    margin: 5px;
+    font-weight: bold;
+}
+
+.loading p {
+    margin: 5px;
+}
+
+.refresh {
+    right: 5px;
+    bottom: 5px;
+}

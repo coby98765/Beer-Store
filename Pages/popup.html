@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/product_popup.css">
+</head>
+
+<body>
+
+    <div class="popup-container" id="popup-container">
+        <button class="close-button"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="popup-content">
+
+            <div class="product-images">
+                <div class="main-img">
+                    <img src="../Assets/ffffff1.png" id="big-img0" class="big-img">
+                    <img src="../Assets/ffffff2.png" id="big-img1" class="big-img select">
+                    <img src="../Assets/ffffff3.png" id="big-img2" class="big-img">
+                </div>
+                <div class="smal-img">
+                    <img src="../Assets/ffffff1.png" id="smal-img0" onclick="currentDiv(0)">
+                    <img src="../Assets/ffffff2.png" id="smal-img1" onclick="currentDiv(1)">
+                    <img src="../Assets/ffffff3.png" id="smal-img2" onclick="currentDiv(2)">
+                </div>
+            </div>
+
+            <div class="product-details">
+                <h1 class="product-name">Beer Product Name</h1>
+                <div class="price-style-div">
+                    <p class="product-style">Pale Ale</p>
+                    <p class="product-abv">5.5% ABV</p>
+                    <p class="product-price" id="display-price">12.99</p>
+                </div>
+
+                <h3>Description</h3>
+                <p class="product-description">
+                    Goose Island’s flagship IPA is a six-time medal winner at the Great
+                    American Beer Festival. We’ve taken the traditional
+                    English Style and created our own fuller flavored IPA with bright citrus aromas and a bold hop
+                    finish. With hoppy, bold,
+                    and smooth flavor, Goose IPA is the perfect beer for hopheads and discovery drinkers alike.
+                </p>
+<form id="add-to-cart">
+                <h3>Select Packing:</h3>
+                <div class="select-container">
+                    <div>
+                        <div class="switch-field">
+                            <input type="radio" id="type-bottle" name="switch-type" value="Bottle" checked />
+                            <label for="type-bottle">Bottle</label>
+                            <input type="radio" id="type-can" name="switch-type" value="Can" />
+                            <label for="type-can">Can</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="switch-field">
+                            <input type="radio" id="radio-one" name="switch-one" value="1" checked />
+                            <label for="radio-one">Singles</label>
+                            <input type="radio" id="radio-two" name="switch-one" value="6" />
+                            <label for="radio-two" id="radio-two-label" >6 Pack</label>
+                        </div>
+                    </div>
+                </div>
+                <h3>Select Amount:</h3>
+                <div class="counter">
+                    <span class="down" onClick='decreaseCount(event, this)'><i class="fa-solid fa-minus"></i></span>
+                    <input type="text" value="1">
+                    <span class="up" onClick='increaseCount(event, this)'><i class="fa-solid fa-plus"></i></span>
+                </div>
+
+                <input type="submit" value="Add to Cart" id="add-to-cart-btn"/>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link For icons -->
+    <script src="../Script/popup.js"></script>
+    <script src="https://kit.fontawesome.com/6a1ee45da2.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
