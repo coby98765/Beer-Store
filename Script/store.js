@@ -80,6 +80,7 @@ const products = [{
     ibu: 40,
     description: "A classic Pale Ale with a balanced hop bitterness and notes of citrus and pine.",
     thumbnail: "../Assets/BeerCup2.jpg",
+    images: ["../Assets/BeerCup2.jpg", "../Assets/6pack.jpg", "../Assets/BeerCup.jpg"],
     price: 12.99,
     quantity: 50,
 }, {
@@ -89,9 +90,20 @@ const products = [{
     ibu: 90,
     description: "Goose Island’s flagship IPA is a six-time medal winner at the Great American Beer Festival. We’ve taken the traditional English Style and created our own fuller flavored IPA with bright citrus aromas and a bold hop finish. With hoppy, bold, and smooth flavor, Goose IPA is the perfect beer for hopheads and discovery drinkers alike.",
     thumbnail: "../Assets/BeerCup2.jpg",
+    images: ["../Assets/BeerCup2.jpg", "../Assets/6pack.jpg", "../Assets/BeerCup.jpg"],
     price: 15.99,
     quantity: 50,
-}];
+}, {
+    sku: "ST001",
+    name: "Stout",
+    style: "Stout",
+    abv: 6.0,
+    description: "A rich and dark Stout with hints of chocolate and roasted malt.",
+    price: 11.99,
+    thumbnail: "../Assets/BeerCup2.jpg",
+    images: ["../Assets/BeerCup2.jpg", "../Assets/6pack.jpg", "../Assets/BeerCup.jpg"],
+},
+];
 
 //view array
 const productsView = [];
@@ -149,12 +161,10 @@ function renderProductCard(product) {
 //render product popup
 function renderProductPopup(product) {
     console.log(product.name);
-    mainBody.style.display = 'none';
-    // const div = document.createElement('div')
-    popupPlaseholder.classList.remove('hiden');;
+    popupPlaseholder.classList.remove('hiden');
     popupPlaseholder.classList.add('open');
-    // div.setAttribute('id', 'popup-container');
-    // popupPlaseholder.style.display = 'flex';
+    // change price
+    let price = product.price;
     popupPlaseholder.innerHTML = `
                      <button class="close-popup"><i class="fa-solid fa-xmark"></i></button>
 
@@ -162,32 +172,28 @@ function renderProductPopup(product) {
 
             <div class="product-images">
                 <div class="main-img">
-                    <img src="../Assets/ffffff1.png" id="big-img0" class="big-img">
-                    <img src="../Assets/ffffff2.png" id="big-img1" class="big-img select">
-                    <img src="../Assets/ffffff3.png" id="big-img2" class="big-img">
+                    <img src="${product.images[0]}" id="big-img0" class="big-img">
+                    <img src="${product.images[1]}" id="big-img1" class="big-img select">
+                    <img src="${product.images[2]}" id="big-img2" class="big-img">
                 </div>
                 <div class="smal-img">
-                    <img src="../Assets/ffffff1.png" id="smal-img0" onclick="currentDiv(0)">
-                    <img src="../Assets/ffffff2.png" id="smal-img1" onclick="currentDiv(1)">
-                    <img src="../Assets/ffffff3.png" id="smal-img2" onclick="currentDiv(2)">
+                    <img src="${product.images[0]}" id="smal-img0" onclick="currentDiv(0)">
+                    <img src="${product.images[1]}" id="smal-img1" onclick="currentDiv(1)">
+                    <img src="${product.images[2]}" id="smal-img2" onclick="currentDiv(2)">
                 </div>
             </div>
 
             <div class="product-details">
-                <h1 class="product-name">Beer Product Name</h1>
+                <h1 class="product-name">${product.name}</h1>
                 <div class="price-style-div">
-                    <p class="product-style">Pale Ale</p>
-                    <p class="product-abv">5.5% ABV</p>
-                    <p class="product-price" id="display-price">12.99</p>
+                    <p class="product-style">${product.style}</p>
+                    <p class="product-abv">${product.abv}% ABV</p>
+                    <p class="product-price" id="display-price">${product.price}</p>
                 </div>
 
                 <h3>Description</h3>
                 <p class="product-description">
-                    Goose Island’s flagship IPA is a six-time medal winner at the Great
-                    American Beer Festival. We’ve taken the traditional
-                    English Style and created our own fuller flavored IPA with bright citrus aromas and a bold hop
-                    finish. With hoppy, bold,
-                    and smooth flavor, Goose IPA is the perfect beer for hopheads and discovery drinkers alike.
+                    ${product.description}
                 </p>
 <form id="add-to-cart">
                 <h3>Select Packing:</h3>
@@ -221,8 +227,10 @@ function renderProductPopup(product) {
             </div>
         </div>
                `;
+
+    //price calculation
     // change price
-    let price = 12.99;
+    // let price = 12.99;
     let sixPack = false;
 
     const radioButtons = document.querySelectorAll('input[name="switch-one"]');
@@ -242,9 +250,16 @@ function renderProductPopup(product) {
         });
     });
 
-    //add to cart
+    //close popup
+    const icon_close = document.querySelector('.close-popup');
+    icon_close.addEventListener('click', (e) => {
+        closeProductPopup()
+    });
 
+
+    //add to cart
     const addToCart = document.getElementById('add-to-cart');
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
 
     addToCart.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -258,9 +273,22 @@ function renderProductPopup(product) {
         console.log('Selected Amount: ' + amount);
         let sum = amount * packingOption2
         console.log('Sum: ' + sum);
-        // Reset the form
-        addToCart.reset();
+        addToCartBtn.value = `Done`;
+
+        // Reset and close the form
+        setTimeout(() => {
+            addToCart.reset();
+            closeProductPopup()
+        }, 1000)
+
     });
+}
+
+//close product popup
+function closeProductPopup() {
+    popupPlaseholder.classList.remove('open');
+    popupPlaseholder.classList.add('hiden');
+    popupPlaseholder.innerHTML = "";
 }
 
 
