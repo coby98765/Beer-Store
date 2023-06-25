@@ -64,13 +64,13 @@ function toggleNav() {
 }
 
 //store
-// productGrid.innerHTML = `
-//     <div class="product-tile loading">
-//     <h1><i class="fa-solid fa-spinner fa-spin-pulse"></i></h1>
-//     <h3>Loading items...</h3>
-//     <p>Please wait a moment</p>
-//     </div>
-//     `;
+productGrid.innerHTML = `
+    <div class="product-tile loading">
+    <h1><i class="fa-solid fa-spinner fa-spin-pulse"></i></h1>
+    <h3>Loading items...</h3>
+    <p>Please wait a moment</p>
+    </div>
+    `;
 
 //loading data
 const products = [{
@@ -119,13 +119,16 @@ moveProducts(products)
 
 
 //render products view
+
 function renderProducts(array) {
     productGrid.innerHTML = "";
     array.forEach(product => {
         renderProductCard(product)
     });
 }
-renderProducts(productsView)
+setTimeout(() => {
+    renderProducts(productsView)
+}, 1000);
 
 //sort array
 const productsSort = products.sort(function (a, b) { });
@@ -160,7 +163,7 @@ function renderProductCard(product) {
 
 //render product popup
 function renderProductPopup(product) {
-    console.log(product.name);
+    // console.log(product.name);
     popupPlaseholder.classList.remove('hiden');
     popupPlaseholder.classList.add('open');
     // change price
@@ -229,8 +232,6 @@ function renderProductPopup(product) {
                `;
 
     //price calculation
-    // change price
-    // let price = 12.99;
     let sixPack = false;
 
     const radioButtons = document.querySelectorAll('input[name="switch-one"]');
@@ -290,19 +291,3 @@ function closeProductPopup() {
     popupPlaseholder.classList.add('hiden');
     popupPlaseholder.innerHTML = "";
 }
-
-
-//Sampele Product
-const paleAle = {
-    name: "Pale Ale",
-    style: "Pale Ale",
-    abv: 5.5,
-    ibu: 40,
-    description: "A classic Pale Ale with a balanced hop bitterness and notes of citrus and pine.",
-    image: "pale_ale.jpg",
-    price: 12.99,
-    quantity: 50,
-};
-
-console.log(paleAle);
-

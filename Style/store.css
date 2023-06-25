@@ -186,15 +186,12 @@ main {
     height: 28px;
     background-color: transparent;
     border: 0;
-    border-radius: 5px;
-    color: var(--text-color);
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .storeSearch button:hover {
-    color: var(--text-color);
-    background-color: white;
-    outline: 1px solid black;
+    background-color: var(--accent-color);
 }
 
 /* mobile */
