@@ -7,15 +7,8 @@ const header = document.getElementById('navbar')
 header.innerHTML = `
 <h2 class="logo" id="logo">yaakov.store</h2>
         <nav class="navigation">
-            <a href="#logo">Home</a>
-            <div class="dropdown">
-                <button id="dropbtn" class="dropbtn">Projects &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="./pages/Calculator.html">Calculator</a>
-                    <a href="#">Others</a>
-                    <a href="#">Others 2</a>
-                </div>
-            </div>
+            <a href="./home.html#home">Home</a>
+            <a href="./store.html">Shop</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
             <button class="login-popup">Log-In</button>
