@@ -92,6 +92,9 @@
             <p>Please fill in this form to create an account.</p>
             <hr>
 
+            <label for="username"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="data[username]" id="username" required>
+
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="data[email]" id="email" required>
 
@@ -113,6 +116,8 @@
             </div>
         </div>
     </form>
+
+    <button type="button" class="Athentict" id="getUser">Athentict</button>
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
     <script>
@@ -120,6 +125,7 @@
         const email = document.getElementById('email');
         const password = document.getElementById('password');
         const password2 = document.getElementById('repeat-password');
+        const getUserEL = document.getElementById('getUser');
 
 
         function sendEmail(email, password) {
@@ -133,28 +139,68 @@
                 message => alert(message)
             );
         }
-    
+
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             console.log(`Email: ${email.value}, Password: ${password.value}, and Repeat Password: ${password2.value}`);
             if (password.value === password2.value) {
                 sendEmail(email.value, password.value);
+                let formData = new FormData(document.getElementById('sheetdb-form'))
+                let email = formData.get('data[email]')
+                let pass = formData.get('data[pw]')
+                let username = formData.get('data[username]')
+                // date to string
+                let date = new Date().toString()
+                let token = `${username}-${pass}-${email}-${date}`;
                 fetch(form.action, {
                     method: 'POST',
-                    body: new FormData(document.getElementById('sheetdb-form')),
+                    body: {
+                        email,
+                        password : pass,
+                        username,
+                        token,
+                    }
                 }).then(
                     response => response.json()
                 ).then((html) => {
                     // window.open('https://www.google.com');
                 });
             } else {
-                password.style.backgroundColor= '#f44336';
+                password.style.backgroundColor = '#f44336';
                 password2.style.backgroundColor = '#f44336';
                 alert("Passwords Dont Match!");
             }
 
         });
+
+        let getUser = function (email) {
+            email= 'yaakov98765@gmail.com';
+            fetch(`https://sheetdb.io/api/v1/7iizeol5qeoj6/search?email=${email}`)
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+
+
+            fetch('https://sheetdb.io/api/v1/7iizeol5qeoj6/id/3', {
+                method: 'PATCH',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: {
+                        'token': ""
+                    }
+                })
+            })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+    
+
+        }
+
+        getUserEL.addEventListener('click', getUser);
+
     </script>
 
 </body>
