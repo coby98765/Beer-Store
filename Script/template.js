@@ -7,11 +7,11 @@ const header = document.getElementById('navbar')
 header.innerHTML = `
 <h2 class="logo" id="logo">yaakov.store</h2>
         <nav class="navigation">
-            <a href="./home.html#home">Home</a>
-            <a href="./store.html">Shop</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#" id="cart"><ion-icon name="cart-outline"></ion-icon></a>
+            <a class="navigationItem" href="./home.html#home">Home</a>
+            <a class="navigationItem" href="./store.html">Shop</a>
+            <a class="navigationItem" href="./home.html#about">About</a>
+             <a class="navigationItem" href="./home.html#contact">Contact</a>
+            <a class="navigationItem" href="./cart.html">Cart</a>
             <button class="login-popup">Log-In</button>
         </nav>
 `;
@@ -40,9 +40,9 @@ footer.innerHTML = `
     <div class="footer-col">
         <h4>Company</h4>
         <ul>
-            <li><a href="#">About me</a></li>
+            <li><a href="./home.html#about">About us</a></li>
             <li><a href="#">Customers</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="./home.html#contact">Contact</a></li>
             <li><a href="#">Privacy</a></li>
         </ul>
     </div>
@@ -58,7 +58,7 @@ footer.innerHTML = `
     <div class="footer-col">
         <h4>projects</h4>
         <ul>
-            <li><a href="https://yaakov.store/pages/Calculator.html">price pre weight</a></li>
+            <li><a href="#">other</a></li>
             <li><a href="#">other</a></li>
             <li><a href="#">other</a></li>
             <li><a href="#">other</a></li>

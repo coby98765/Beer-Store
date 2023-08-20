@@ -11,10 +11,10 @@
 
 <body>
     <header id="navbar">
-    
+
     </header>
     <div class="wrapper">
-    
+
     </div>
 
     <div class="sections">
@@ -30,7 +30,7 @@
         </section>
 
         <!-- Two -->
-        <section class="details-banner rtl">
+        <section class="details-banner rtl" id="about">
             <div class="text">
                 <h2>Explore Our Craftsmanship</h2>
                 <p>Experience the heart and soul of brewing with a family touch. We take pride in being a family-owned
@@ -102,7 +102,8 @@
             <div class="text">
                 <h4>Indulge in the art of true craft. Discover the harmony of flavors, the embrace of family tradition,
                     <br> and the dedication
-                    to a greener future – all within the exquisite allure of our beers.</h4>
+                    to a greener future – all within the exquisite allure of our beers.
+                </h4>
                 <p>"Crafting More than Beers – Crafting Moments to Savor."</p>
             </div>
         </section>
@@ -114,7 +115,7 @@
             <div class="products">
                 <div class="product">
                     <img src="../Assets/Pale Ale.jpeg" alt="">
-            
+
                     <h4>Pale Ale</h4>
                 </div>
                 <div class="product">
@@ -132,17 +133,61 @@
 
             </div>
             <a href="./store.html"> <button>Go to Shop</button></a>
-           
+
         </section>
 
+        <!-- contact -->
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <div class="contact-details">
+                <div>
+                    <div class="address">
+                    <h3>Visit Us</h3>
+                    <p>123 Craft Brewery Lane</p>
+                    <p>Cityville, State 12345</p>
+                </div>
+                <div class="phone">
+                    <h3>Call Us</h3>
+                    <p>+1 (123) 456-7890</p>
+                </div>
+                <div class="email">
+                    <h3>Email Us</h3>
+                    <p>We'd love to hear from you! Drop us an email:</p>
+                    <a href="mailto:info@craftbrewery.com">info@craftbrewery.com</a>
+                </div>
+                </div>
+    
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3511.067001260012!2d-81.59411931604735!3d28.35682388698759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd81a33dfde1fd%3A0x3438044622233fbb!2sDisney&#39;s%20Animal%20Kingdom%20Theme%20Park!5e0!3m2!1sen!2sil!4v1692550642533!5m2!1sen!2sil"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form action="submit_form.php" method="POST">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
 
 
-        <footer class="footer" id="footer">
-        
-        </footer>
-        <script src="../Script/template.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <footer class="footer" id="footer">
+
+    </footer>
+    <script src="../Script/template.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

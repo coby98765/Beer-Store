@@ -59,7 +59,7 @@ header.scrolled {
     user-select: none;
 }
 
-.navigation a {
+.navigation .navigationItem{
     position: relative;
     font-size: 1.1em;
     color: var(--text-color);
@@ -99,7 +99,7 @@ header.scrolled {
     transform: scaleX(1);
 } */
 
-.navigation a::after {
+.navigation .navigationItem::after {
     content: '';
     position: absolute;
     left: 0;
@@ -114,10 +114,22 @@ header.scrolled {
     box-shadow: 1px 1px 0px white;
 }
 
-.navigation a:hover::after {
+.navigation .navigationItem:hover::after {
     transform-origin: left;
     transform: scaleX(1);
 }
+
+#cart {
+/* position: relative; */
+    border: 2px solid var(--text-color);
+    padding: auto;
+    font-size: 2em;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
 
 .navigation .login-popup {
     width: 130px;
