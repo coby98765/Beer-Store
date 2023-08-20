@@ -40,21 +40,6 @@ p.major {
     text-decoration: none;
 }
 
-/* header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px 100px;
-    height: 70px;
-    width: 100%;
-    background-color: #fff;
-} */
-
-/* .logo {
-    font-size: 2em;
-    color: #162938;
-    user-select: none;
-} */
 
 .sections {
     width: 100%;
@@ -65,7 +50,7 @@ section {
     display: flex;
     align-items: center;
 
-    justify-content: space-between;
+    /* justify-content: space-between; */
     
     border-bottom: gray 1.5px solid;
 }
@@ -93,8 +78,9 @@ section {
 }
 
 .details-banner {
-    height: 350px;
+    height: 370px;
     width: 100%;
+    padding: 0 5%;
 }
 
 section.rtl {

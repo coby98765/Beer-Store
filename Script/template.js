@@ -11,6 +11,7 @@ header.innerHTML = `
             <a href="./store.html">Shop</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
+            <a href="#" id="cart"><ion-icon name="cart-outline"></ion-icon></a>
             <button class="login-popup">Log-In</button>
         </nav>
 `;

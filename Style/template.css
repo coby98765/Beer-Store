@@ -43,6 +43,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+    text-shadow: 1px 1px 0px white;
 }
 
 header.scrolled {
@@ -67,7 +68,7 @@ header.scrolled {
     margin-left: 40px;
 }
 
-#dropbtn {
+/* #dropbtn {
     appearance: none;
     border: none;
     background-color: transparent;
@@ -77,7 +78,7 @@ header.scrolled {
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
-}
+} */
 
 /* #dropbtn::after {
     content: '';
@@ -110,6 +111,7 @@ header.scrolled {
     border-radius: 5px;
     transform: scaleX(0);
     transition: transform .5s;
+    box-shadow: 1px 1px 0px white;
 }
 
 .navigation a:hover::after {
@@ -122,6 +124,7 @@ header.scrolled {
     height: 50px;
     background: transparent;
     border: 2px solid var(--text-color);
+    box-shadow: 1px 1px 0px white;
     outline: none;
     border-radius: 6px;
     cursor: pointer;
