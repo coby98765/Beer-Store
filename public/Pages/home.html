@@ -19,12 +19,13 @@
 </head>
 
 <body>
-    <header id="navbar">
+    <!-- header plesholder -->
+    <header id="navbar"></header>
+    <!-- login popup plesholder -->
+    <div class="wrapper"></div>
+    <!-- Jump to top button -->
+    <button class="jump-to-top" id="jumpToTopBtn" onclick="jumpToTop()">▲</button>
 
-    </header>
-    <div class="wrapper">
-
-    </div>
 
     <div class="sections">
 
@@ -149,30 +150,31 @@
         <section id="contact">
             <h2>Contact Information</h2>
             <div class="contact-details">
-                <div>
+                <div class="contact-details-info">
                     <div class="address">
-                    <h3>Visit Us</h3>
-                    <p>123 Craft Brewery Lane</p>
-                    <p>Cityville, State 12345</p>
+                        <h3>Visit Us</h3>
+                        <p>123 Craft Brewery Lane</p>
+                        <p>Cityville, State 12345</p>
+                    </div>
+                    <div class="phone">
+                        <h3>Call Us</h3>
+                        <p>+1 (123) 456-7890</p>
+                    </div>
+                    <div class="email">
+                        <h3>Email Us</h3>
+                        <p>We'd love to hear from you! Drop us an email:</p>
+                        <a href="mailto:info@craftbrewery.com">info@craftbrewery.com</a>
+                    </div>
                 </div>
-                <div class="phone">
-                    <h3>Call Us</h3>
-                    <p>+1 (123) 456-7890</p>
-                </div>
-                <div class="email">
-                    <h3>Email Us</h3>
-                    <p>We'd love to hear from you! Drop us an email:</p>
-                    <a href="mailto:info@craftbrewery.com">info@craftbrewery.com</a>
-                </div>
-                </div>
-    
+
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3511.067001260012!2d-81.59411931604735!3d28.35682388698759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd81a33dfde1fd%3A0x3438044622233fbb!2sDisney&#39;s%20Animal%20Kingdom%20Theme%20Park!5e0!3m2!1sen!2sil!4v1692550642533!5m2!1sen!2sil"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217057.14001629653!2d34.913257694531254!3d31.78363490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d770704545%3A0xe452246537351c95!2sCollege%20Perugia!5e0!3m2!1sen!2sil!4v1692606433978!5m2!1sen!2sil"
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
             <div class="contact-form">
-                <h3>Send Us a Message</h3>
+                <h2>Send Us a Message</h2>
                 <form action="submit_form.php" method="POST">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required>

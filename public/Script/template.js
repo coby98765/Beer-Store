@@ -30,6 +30,26 @@ window.addEventListener("scroll", function () {
 });
 
 
+//Jump to top button
+// Display the button when the user scrolls down 20px from the top
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("jumpToTopBtn").style.display = "block";
+    } else {
+        document.getElementById("jumpToTopBtn").style.display = "none";
+    }
+}
+
+// Scroll to the top when the button is clicked
+function jumpToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
 
 
 //insert footer
