@@ -128,6 +128,7 @@ header.scrolled {
     background: transparent;
     border: 2px solid var(--text-color);
     box-shadow: 1px 1px 0px white;
+    text-shadow: 1px 1px 0px white;
     outline: none;
     border-radius: 6px;
     cursor: pointer;
@@ -143,6 +144,30 @@ header.scrolled {
     color: #fff;
 
 }
+
+/* jump-to-top button */
+.jump-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--main-color);
+    font-size: 2em;
+    color: var(--text-color);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    z-index: 100;
+}
+
+
+
+.jump-to-top:hover {
+    background-color: var(--secondary-color);
+}
+
 
 /*login popup*/
 .wrapper {
@@ -388,7 +413,7 @@ header.scrolled {
 .footer {
     /* position: absolute;
     bottom: 0px; */
-    box-shadow: 30px 0 0 0 rgba(0, 0, 0, .5);
+    /* box-shadow: 30px 0 0 0 rgba(0, 0, 0, .5); */
     margin-top: 30px;
     backdrop-filter: blur(20px);
     padding: 70px 0;
@@ -403,6 +428,7 @@ header.scrolled {
 
 .footer ul {
     list-style: none;
+    padding-inline-start: 20px;
 }
 
 .footer-row {

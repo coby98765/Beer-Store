@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump to Top Button</title>
+    <style>
+        /* Styles for the jump-to-top button */
+        .jump-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            font-size: 2em;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+
+
+        .jump-to-top:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your website content goes here -->
+    <img src="G:\Other computers\My Laptop\HTML-CSS-JS\Beer Project\Test\public\Assets\high-angle-wheat-seeds-beer-mugs.jpg"
+        alt="">
+    <!-- Jump to top button -->
+    <button class="jump-to-top" id="jumpToTopBtn" onclick="jumpToTop()">▲</button>
+
+    <!-- JavaScript to show/hide the button and scroll to top -->
+    <script>
+        // Display the button when the user scrolls down 20px from the top
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("jumpToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("jumpToTopBtn").style.display = "none";
+            }
+        }
+
+        // Scroll to the top when the button is clicked
+        function jumpToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>

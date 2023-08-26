@@ -166,8 +166,11 @@ section.shop button:hover{
 /* Style for the contact details */
 .contact-details {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     margin-bottom: 30px;
+}
+.contact-details-info{
+    margin-left: 20px;
 }
 
 /* Style for each contact detail block */
@@ -184,9 +187,7 @@ section.shop button:hover{
 
 /* Style for the contact form */
 .contact-form {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
+   
 }
 
 /* Style for form labels */
