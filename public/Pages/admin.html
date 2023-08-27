@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2EXQL4VK0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-P2EXQL4VK0');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beer Brewery | Admin Panel</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/favicon.png">
+    <link rel="stylesheet" href="../Style/template.css">
+    <link rel="stylesheet" href="../Style/admin.css">
+</head>
+
+<body>
+    <!-- header plesholder -->
+    <header id="navbar"></header>
+    <!-- login popup plesholder -->
+    <div class="wrapper"></div>
+    <!-- Jump to top button -->
+    <button class="jump-to-top" id="jumpToTopBtn" onclick="jumpToTop()">▲</button>
+
+
+    <section class="table_4knr9i__table_container" id="table_4knr9i__table_container">
+        <section id="table_4knr9i__loader">
+            <div
+                style="display: flex; padding: 20px; height: 200px; width: 100%; justify-content:center; align-items: center;">
+                <svg class="stroke-current" width="64" height="64" viewBox="0 0 44 44" stroke="#000">
+                    <g fill="none" fill-rule="evenodd" stroke-width="2">
+                        <circle cx="22" cy="22" r="1">
+                            <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline"
+                                keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0"
+                                calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1"
+                                repeatCount="indefinite"></animate>
+                        </circle>
+                        <circle cx="22" cy="22" r="1">
+                            <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline"
+                                keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0"
+                                calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1"
+                                repeatCount="indefinite"></animate>
+                        </circle>
+                    </g>
+                </svg>
+            </div>
+        </section>
+        <div id="table_4knr9i__table_content" style="display:none;">
+            <div style="display:flex; justify-content: flex-end; margin: 0; padding: 0;">
+                <input onkeyup="table_4knr9i_form_search_change()" id="table_4knr9i_form_search"
+                    class="table_4knr9i_form_search" type="text" placeholder="Search...">
+            </div>
+
+            <div id="table_4knr9i__table_scroll">
+                <table class="table_4knr9i__table" id="table_4knr9i__table">
+                    <thead>
+                        <tr>
+                            <th onclick="table_4knr9i_sort_table(0)" class="sortable">
+                                name 
+                                <svg class="sort_icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z">
+
+                                    </path>
+                                </svg>
+                            </th>
+                            <th onclick="table_4knr9i_sort_table(1)" class="sortable">
+                                email 
+                                <svg class="sort_icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z"></path>
+                                </svg> </th>
+                            <th onclick="table_4knr9i_sort_table(2)" class="sortable">
+                                message 
+                                <svg class="sort_icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z">
+                                    </path>
+                                </svg>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_4knr9i__sheetdb_content" data-api-url="https://sheetdb.io/api/v1/2zmnvwg2pldlh">
+                    </tbody>
+                    <tbody>
+                        <tr id="table_4knr9i__no_results_found" style="display: none;">
+                            <td colspan="3" style="text-align: center;"> No results found
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="display:flex; align-items: center; justify-content: space-between;">
+                <div>
+                </div>
+                <div class="table_4knr9i__table_made_by">
+                    <a href="https://sheetdb.io?utm_source=snippet&amp;utm_medium=website&amp;utm_campaign=table"> 
+                        We use SheetDB Tables
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="table_4knr9i_snippet_error" style="display: none;">
+            <h2>Woops. Something went wrong.</h2>
+            <p style="margin-bottom: 2em;">Contact the owner or SheetDB team.</p>
+            <div class="table_4knr9i__form_made_by">
+                <a href="https://sheetdb.io?utm_source=snippet&amp;utm_medium=website&amp;utm_campaign=snippet_error">
+                    We use SheetDB
+                </a>
+            </div>
+        </div>
+
+
+        <footer class="footer" id="footer"></footer>
+
+        <script src="https://sheetdb.io/s/t/b0yxba5i8v53x.js"></script>
+        <script src="../Script/template.js"></script>
+        <script src="../Script/admin.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
