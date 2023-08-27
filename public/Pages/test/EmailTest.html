@@ -147,12 +147,9 @@
             if (password.value === password2.value) {
                 sendEmail(email.value, password.value);
                 let formData = new FormData(document.getElementById('sheetdb-form'))
+                let name = formData.get('data[name]')
                 let email = formData.get('data[email]')
-                let pass = formData.get('data[pw]')
                 let username = formData.get('data[username]')
-                // date to string
-                let date = new Date().toString()
-                let token = `${username}-${pass}-${email}-${date}`;
                 fetch(form.action, {
                     method: 'POST',
                     body: {

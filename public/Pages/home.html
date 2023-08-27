@@ -175,15 +175,15 @@
             </div>
             <div class="contact-form">
                 <h2>Send Us a Message</h2>
-                <form action="submit_form.php" method="POST">
+                <form action="https://sheetdb.io/api/v1/2zmnvwg2pldlh" method="post" id="sheetdb-form">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="data[name]" required>
 
                     <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="data[email]" required>
 
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <textarea id="message" name="data[message]" rows="4" required></textarea>
 
                     <button type="submit">Send</button>
                 </form>
@@ -196,6 +196,7 @@
     <footer class="footer" id="footer">
 
     </footer>
+    <script src="../Script/home.js"></script>
     <script src="../Script/template.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
