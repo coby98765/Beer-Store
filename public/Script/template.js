@@ -71,7 +71,7 @@ footer.innerHTML = `
         <ul>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Help Center</a></li>
-            <li><a href="../public/Pages/admin.html">Admin</a></li>
+            <li><a href="../Pages/admin.html">Admin</a></li>
             <li><a href="#">get help</a></li>
         </ul>
     </div>
