@@ -6,6 +6,10 @@
 const header = document.getElementById('navbar')
 header.innerHTML = `
 <h2 class="logo" id="logo">yaakov.store</h2>
+<!-- viseble on small screens only -->
+     <button class="hamburger-menu" onclick="toggleNavToMobile()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
         <nav class="navigation">
             <a class="navigationItem" href="./home.html#home">Home</a>
             <a class="navigationItem" href="./store.html">Shop</a>
@@ -16,6 +20,11 @@ header.innerHTML = `
         </nav>
 `;
 
+//hamburger menu for mobile devices
+function toggleNavToMobile() {
+    var navigation = document.querySelector(".navigation");
+    navigation.classList.toggle("active");
+}
 
 //nav bar scrolled back color 
 window.addEventListener("scroll", function () {

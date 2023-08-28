@@ -59,6 +59,45 @@ header.scrolled {
     margin-left: 40px;
 }
 
+/* hamburger menu */
+.hamburger-menu{
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+@media (max-width: 1013px) {
+.navigation {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        /* Adjust as needed to align with your header */
+        left: 0;
+        background-color: #fff;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navigation.active {
+        display: flex;
+        align-items: center;
+    }
+
+    .navigationItem {
+        margin-bottom: 20px;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+}
+
+
 /* #dropbtn {
     appearance: none;
     border: none;

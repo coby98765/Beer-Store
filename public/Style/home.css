@@ -18,12 +18,24 @@
     margin: 0 0 1rem 0;
 }
 
+@media (max-width: 1013px) {
+    .sections h1 {
+        font-size: 2.5rem;
+    }
+}
+
 .sections h2 {
     font-size: 3rem;
     line-height: 1;
     font-weight: 300;
     letter-spacing: -0.05em;
     margin: 0 0 1rem 0;
+}
+
+@media (max-width: 1013px) {
+    .sections h2 {
+        font-size: 2rem;
+    }
 }
 
 .sections h4 {
@@ -55,7 +67,7 @@ p.major {
 
 .sections {
     width: 100%;
-padding-top: 90px;
+    padding-top: 90px;
 }
 
 section {
@@ -63,9 +75,11 @@ section {
     align-items: center;
 
     /* justify-content: space-between; */
-    
+
     border-bottom: gray 1.5px solid;
 }
+
+
 
 .hero-banner {
     height: 98vh;
@@ -87,6 +101,32 @@ section {
 .hero-banner .image img {
     object-fit: cover;
     height: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        display: block;
+        position: relative;
+        height: 60vh;
+    }
+
+    .hero-banner .text {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        /* height: 50%; */
+        background-color: rgba(220, 214, 214, 0.636);
+        text-align: center;
+        padding: 15px;
+    }
+.hero-banner .image {
+    width: 100%;
+}
+.hero-banner .image img {
+    object-fit: cover;
+    width: 100%;
+}
 }
 
 .details-banner {
@@ -121,6 +161,44 @@ section.shop p {
 .details-banner .image img {
     object-fit: cover;
     height: 100%;
+}
+
+@media (max-width: 768px) {
+
+    .details-banner {
+        flex-direction: column-reverse;
+        align-content: center;
+        justify-content: normal;
+        height: 100%;
+        padding: 0;
+    }
+
+    section.rtl {
+        flex-direction: column-reverse;
+    }
+
+    .details-banner .text {
+        margin: 10px auto;
+        /* padding: 0 auto; */
+        width: 80%;
+    }
+
+    .details-banner .text h2 {
+        margin-top: 20px;
+    }
+
+    .details-banner .image {
+        width: 100%;
+        height: 30rem;
+
+        /* box-sizing: border-box; */
+    }
+
+    .details-banner .image img {
+        /* object-fit: cover; */
+        object-fit: fill;
+    }
+
 }
 
 .last-details-banner {
@@ -165,7 +243,7 @@ section.shop button {
     border: 0px;
 }
 
-section.shop button:hover{
+section.shop button:hover {
     background: #91dce6;
 }
 
@@ -181,12 +259,15 @@ section.shop button:hover{
     flex-direction: row-reverse;
     margin-bottom: 30px;
 }
-.contact-details-info{
+
+.contact-details-info {
     margin-left: 20px;
 }
 
 /* Style for each contact detail block */
-.address, .phone, .email {
+.address,
+.phone,
+.email {
     /* width: 30%; */
     padding: 10px;
 }
@@ -200,13 +281,14 @@ section.shop button:hover{
 /* Style for the contact form */
 .contact-form {
     margin-top: 20px;
-   display: flex;
+    display: flex;
 }
-.contact-form h2{
+
+.contact-form h2 {
     margin-right: 50px;
 }
 
-.contact-form form{
+.contact-form form {
     width: 300px;
 }
 
