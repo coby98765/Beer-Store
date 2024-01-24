@@ -27,110 +27,60 @@
     <!-- Jump to top button -->
     <button class="jump-to-top" id="jumpToTopBtn" onclick="jumpToTop()">▲</button>
 
-
-    <section class="table_4knr9i__table_container" id="table_4knr9i__table_container">
-        <section id="table_4knr9i__loader">
-            <div style="display: flex; 
-            padding: 20px; 
-            height: 200px; 
-            width: 100%; 
-            justify-content:center; 
-            align-items: center;">
-                <svg class="stroke-current" width="64" height="64" viewBox="0 0 44 44" stroke="#000">
-                    <g fill="none" fill-rule="evenodd" stroke-width="2">
-                        <circle cx="22" cy="22" r="1">
-                            <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline"
-                                keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate>
-                            <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0"
-                                calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1"
-                                repeatCount="indefinite"></animate>
-                        </circle>
-                        <circle cx="22" cy="22" r="1">
-                            <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline"
-                                keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate>
-                            <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0"
-                                calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1"
-                                repeatCount="indefinite"></animate>
-                        </circle>
-                    </g>
-                </svg>
-            </div>
-        </section>
-        <div id="table_4knr9i__table_content" style="display:none;">
-            <div style="display:flex; justify-content: flex-end; margin: 0; padding: 0;">
-                <input onkeyup="table_4knr9i_form_search_change()" id="table_4knr9i_form_search"
-                    class="table_4knr9i_form_search" type="text" placeholder="Search...">
+    <!-- main part of the page -->
+    <main>
+        <nav class="sideNav">
+            <div class="topFIlter">
+                <p>Admin Panel</p>
             </div>
 
-            <div id="table_4knr9i__table_scroll">
-                <table class="table_4knr9i__table" id="table_4knr9i__table">
-                    <thead>
-                        <tr>
-                            <th onclick="table_4knr9i_sort_table(0)" class="sortable">
-                                name 
-                                <svg class="sort_icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z">
+            <!-- "storeSearch" JS NOT Complet-->
+            <button onclick="selectButton(this)">Dashbord</button>
+            <button onclick="selectButton(this)">Products</button>
+            <button onclick="selectButton(this)">Orders</button>
+            <button onclick="selectButton(this)" class="selected">Messages</button>
+            <button onclick="selectButton(this)">Users</button>
 
-                                    </path>
-                                </svg>
-                            </th>
-                            <th onclick="table_4knr9i_sort_table(1)" class="sortable">
-                                email 
-                                <svg class="sort_icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z"></path>
-                                </svg> </th>
-                            <th onclick="table_4knr9i_sort_table(2)" class="sortable">
-                                message 
-                                <svg class="sort_icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z">
-                                    </path>
-                                </svg>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="table_4knr9i__sheetdb_content" data-api-url="https://sheetdb.io/api/v1/2zmnvwg2pldlh">
-                    </tbody>
-                    <tbody>
-                        <tr id="table_4knr9i__no_results_found" style="display: none;">
-                            <td colspan="3" style="text-align: center;"> No results found
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div style="display:flex; align-items: center; justify-content: space-between;">
-                <div>
+        </nav>
+        <div class="infoBox">
+            <div class="infoContainer" id="infoBoxMessages">
+                <h1>Messages</h1>
+                <p id="infoErrorMessages"></p>
+                <div id="dataMessagesChartContainer">
+                    <table id="dataMessagesChart">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataMessagesChartBody"></tbody>
+                    </table>
                 </div>
-                <div class="table_4knr9i__table_made_by">
-                    <a href="https://sheetdb.io?utm_source=snippet&amp;utm_medium=website&amp;utm_campaign=table"> 
-                        We use SheetDB Tables
-                    </a>
+                <div id="navigationButtons">
+                    <button id="prevButton"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div id="counter"></div>
+                    <button id="nextButton"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
+
         </div>
-        
-        
-        <div id="table_4knr9i_snippet_error" style="display: none;">
-            <h2>Woops. Something went wrong.</h2>
-            <p style="margin-bottom: 2em;">Contact the owner or SheetDB team.</p>
-            <div class="table_4knr9i__form_made_by">
-                <a href="https://sheetdb.io?utm_source=snippet&amp;utm_medium=website&amp;utm_campaign=snippet_error">
-                    We use SheetDB
-                </a>
-            </div>
-        </div>
+    </main>
 
 
-        <footer class="footer" id="footer"></footer>
 
-        <script src="https://sheetdb.io/s/t/b0yxba5i8v53x.js"></script>
-        <script src="../Script/template.js"></script>
-        <script src="../Script/admin.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../Script/template.js"></script>
+    <script src="../Script/admin.js"></script>
+    <script src="https://kit.fontawesome.com/6a1ee45da2.js" crossorigin="anonymous"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

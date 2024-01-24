@@ -190,7 +190,9 @@ header.scrolled {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--main-color);
+backdrop-filter: blur(20px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* transition: .2s; */
     font-size: 2em;
     color: var(--text-color);
     padding: 10px 15px;
@@ -204,7 +206,8 @@ header.scrolled {
 
 
 .jump-to-top:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--text-color);
+        color: white;
 }
 
 
