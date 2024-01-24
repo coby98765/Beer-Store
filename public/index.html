@@ -79,6 +79,7 @@
             'analytics', 
             'remoteConfig',
             'performance',
+            
           ].filter(feature => typeof app[feature] === 'function');
           loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
