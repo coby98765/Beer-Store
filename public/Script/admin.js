@@ -1,3 +1,6 @@
+// API link
+let backEndLink = "http://sheetdb.io/api/v1/2zmnvwg2pldlh"
+
 //SideNav Mobile Settings
 function toggleNav() {
     const sideNav = document.querySelector('.sideNav');
@@ -34,16 +37,26 @@ function selectButton(button) {
     } else {
         infoBoxMessages.style.display = 'none';
     }
+
+    // Show/hide the infoBoxUsers div based on the selected button
+    var infoBoxUsers = document.getElementById('infoBoxUsers');
+    if (button.textContent === 'Users' && button.classList.contains('selected')) {
+        infoBoxUsers.style.display = 'block';
+    } else {
+        infoBoxUsers.style.display = 'none';
+    }
 }
 
-
+//messeges table
 document.addEventListener('DOMContentLoaded', function () {
     const dataChartBody = document.getElementById('dataMessagesChartBody');
+    const infoErrorMessages = document.getElementById('infoErrorMessages');
+
     const messagesPerPage = 15;
     let currentPage = 1;
 
     // Fetch data from the API endpoint
-    fetch('https://sheetdb.io/api/v1/2zmnvwg2pldlh')
+    fetch(backEndLink)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -76,9 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error fetching data:', error);
             // Display an error message on the page
-            const errorMessage = document.createElement('div');
-            errorMessage.textContent = 'Error fetching data. Please try again later.';
-            document.body.appendChild(errorMessage);
+            infoErrorMessages.textContent = 'Error fetching data. Please try again later.';
         });
 
     function createNavigationButton(label, onClick) {
@@ -95,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const columns = ['id', 'name', 'email', 'message', 'datetime'];
         columns.forEach(column => {
             const cell = document.createElement('td');
+            cell.classList.add(column);
 
             // Convert 'datetime' to local time
             if (column === 'datetime') {
@@ -107,27 +119,33 @@ document.addEventListener('DOMContentLoaded', function () {
             row.appendChild(cell);
         });
 
+
+        // Add buttons container
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+
         // Add "Reply" button
-        const replyButtonCell = document.createElement('td');
         const replyButton = document.createElement('button');
         replyButton.innerHTML = '<i class="fa-solid fa-reply"></i>';
         replyButton.classList.add('reply-button');
         replyButton.addEventListener('click', function () {
-            replyToEmail(item.email,item.name);
+            replyToEmail(item.email, item.name);
         });
-        replyButtonCell.appendChild(replyButton);
-        row.appendChild(replyButtonCell);
+        buttonsContainer.appendChild(replyButton);
 
         // Add delete button
-        const deleteButtonCell = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
         deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', function () {
             deleteItem(item.id);
         });
-        deleteButtonCell.appendChild(deleteButton);
-        row.appendChild(deleteButtonCell);
+        buttonsContainer.appendChild(deleteButton);
+
+        // Add buttons container to the cell
+        const buttonsCell = document.createElement('td');
+        buttonsCell.appendChild(buttonsContainer);
+        row.appendChild(buttonsCell);
 
         return row;
     }
@@ -172,14 +190,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function deleteItem(itemId) {
         // Send DELETE request to the API endpoint
-        fetch(`https://sheetdb.io/api/v1/2zmnvwg2pldlh/id/${itemId}`, {
+        fetch(`${backEndLink}/id/${itemId}`, {
             method: 'DELETE',
         })
             .then(response => response.json())
             .then(data => {
                 console.log('Item deleted successfully:', data);
                 // Refresh the table after deletion
-                return fetch('https://sheetdb.io/api/v1/2zmnvwg2pldlh');
+                return fetch(backEndLink);
             })
             .then(response => response.json())
             .then(newData => {
@@ -187,6 +205,147 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 console.error('Error deleting item:', error);
+                alert('Error deleting item.');
             });
+    }
+});
+
+
+//users table
+document.addEventListener('DOMContentLoaded', function () {
+    const dataChartBody = document.getElementById('dataUsersChartBody');
+    const infoErrorUsers = document.getElementById('infoErrorUsers');
+    const usersPerPage = 15;
+    let currentPage = 1;
+
+    // Fetch data from the API endpoint for users
+    // const backEndLinkUsers = `${backEndLink}?sheet=users`;
+    fetch(`${backEndLink}?sheet=users`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Display initial set of users
+            displayUsers(data, currentPage, usersPerPage);
+
+            // Add event listeners to buttons
+            const prevButton = document.getElementById('UsersPrevButton');
+            const nextButton = document.getElementById('UsersNextButton');
+
+            prevButton.addEventListener('click', function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayUsers(data, currentPage, usersPerPage);
+                }
+            });
+
+            nextButton.addEventListener('click', function () {
+                const totalPages = Math.ceil(data.length / usersPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayUsers(data, currentPage, usersPerPage);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Display an error message on the page
+            infoErrorUsers.textContent = 'Error fetching data. Please try again later.';
+        });
+
+    function createDataRowUser(user) {
+        const row = document.createElement('tr');
+
+        // Add columns
+        const columns = ['id', 'username', 'email', 'password', 'role', 'active', 'newsletter'];
+        columns.forEach(column => {
+            const cell = document.createElement('td');
+            cell.classList.add(column);
+            cell.textContent = user[column];
+            row.appendChild(cell);
+        });
+
+        // Add buttons container
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+
+        // Add "Reply" button (using user data for reply, modify as needed)
+        const replyButton = document.createElement('button');
+        replyButton.innerHTML = '<i class="fa-solid fa-reply"></i>';
+        replyButton.classList.add('reply-button');
+        replyButton.addEventListener('click', function () {
+            // Example: replyToEmail(user.email, user.username);
+            console.log('Reply button clicked for user:', user);
+        });
+        buttonsContainer.appendChild(replyButton);
+
+        // Add delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        deleteButton.classList.add('delete-button');
+        deleteButton.addEventListener('click', function () {
+            deleteUser(user.id);
+        });
+        buttonsContainer.appendChild(deleteButton);
+
+        // Add buttons container to the cell
+        const buttonsCell = document.createElement('td');
+        buttonsCell.appendChild(buttonsContainer);
+        row.appendChild(buttonsCell);
+
+        return row;
+    }
+
+    function displayUsers(data, page, usersPerPage) {
+        const startIndex = (page - 1) * usersPerPage;
+        const endIndex = startIndex + usersPerPage;
+        const currentPageData = data.slice(startIndex, endIndex);
+
+        // Clear existing rows
+        dataChartBody.innerHTML = '';
+
+        // Populate the table with data for the current page
+        currentPageData.forEach(user => {
+            const row = createDataRowUser(user);
+            dataChartBody.appendChild(row);
+        });
+
+        // Update the counter
+        const counter = document.getElementById('UsersCounter');
+        updateCounter(counter, page, data.length);
+    }
+
+    function deleteUser(userId) {
+        // Send DELETE request to the API endpoint for users
+        fetch(`${backEndLink}/id/${userId}?sheet=users`, {
+            method: 'DELETE',
+            credentials: 'include',
+            redirect: 'follow'
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('User deleted successfully:', data);
+                // Refresh the table after deletion
+                return fetch(`${backEndLink}?sheet=users`);
+            })
+            .then(response => response.json())
+            .then(newData => {
+                displayUsers(newData, currentPage, usersPerPage);
+            })
+            .catch(error => {
+                console.error('Error deleting user:', error);
+                alert('Error deleting user.');
+            });
+    }
+
+    function updateCounter(counterElement, currentPage, totalItems) {
+        const totalPages = Math.ceil(totalItems / usersPerPage);
+        const startItem = (currentPage - 1) * usersPerPage + 1;
+        const endItem = Math.min(currentPage * usersPerPage, totalItems);
+
+        counterElement.textContent = `${startItem} - ${endItem} of ${totalItems}`;
     }
 });

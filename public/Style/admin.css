@@ -150,18 +150,19 @@ main {
     }
 }
 
+/* info box */
 .infoBox {
     margin-top: 20px;
     width: 80%;
     padding: 15px;
 }
 
-/* #dataMessagesChartContainer{
-overflow-x: auto;
-} */
+#infoBoxMessages, #infoBoxUsers{
+    display: none;
+}
 
 .infoBox table {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -179,6 +180,11 @@ overflow-x: auto;
     background-color: #f2f2f2;
 }
 
+/* #dataMessagesChartBody tr{
+    height: 100px;
+    overflow: hidden;
+} */
+
 .infoBox table tr:hover {
     background-color: var(--accent-color);
     border-radius: 5px;
@@ -189,7 +195,18 @@ overflow-x: auto;
     height: 50px;
 }
 
+.infoBox table .email{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.infoBox table .message {
+    overflow-y: auto;
+        max-height: 80px;
+}
+
 .infoBox table td button{
+    padding: 4px;
     font-size: 18px;
     text-align: center;
     cursor: pointer;
@@ -207,7 +224,7 @@ overflow-x: auto;
     text-shadow: 1px 1px 2px black;
 }
 
-#navigationButtons{
+.navigationButtons{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -215,7 +232,7 @@ overflow-x: auto;
     padding: 5px;
 }
 
-#navigationButtons button{
+.navigationButtons button{
     height: 30px;
     width: 30px;
     border: transparent;
