@@ -34,9 +34,11 @@ const contactForm = document.getElementById('contactForm');
             .then(data => {
                 console.log('Data submitted successfully:', data);
                 alert('Message Sent!');
+                contactForm.reset();
             })
             .catch(error => {
                 console.error('Error submitting data:', error);
                 alert('Error. Please try again.');
             });
+        
     });
