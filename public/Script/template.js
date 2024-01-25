@@ -87,7 +87,7 @@ footer.innerHTML = `
     <div class="footer-col">
         <h4>projects</h4>
         <ul>
-            <li><a href="#">other</a></li>
+            <li><a href="#">Test</a></li>
             <li><a href="#">other</a></li>
             <li><a href="#">other</a></li>
             <li><a href="#">other</a></li>
